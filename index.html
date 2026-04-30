@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dev Rathod | Civil Engineering Portfolio</title>
-
+  <title>Dev Rathod | Professional Portfolio</title>
   <style>
     * {
       margin: 0;
@@ -14,732 +13,1087 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4fbf8;
-      color: #1f2937;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f4ee;
+      color: #2f332f;
       line-height: 1.7;
     }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #d1fae5;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #31473a, #486253);
+      color: #fff;
+      padding: 28px 22px;
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.08);
+      height: 100vh;
+      overflow-y: auto;
+      box-shadow: 6px 0 20px rgba(0, 0, 0, 0.08);
     }
 
-    nav {
-      width: 90%;
-      max-width: 1180px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
+    .profile-box {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     }
 
-    .brand {
-      font-size: 22px;
+    .profile-img {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+      margin-bottom: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .profile-box h1 {
+      font-size: 26px;
+      margin-bottom: 6px;
       font-weight: 800;
-      color: #065f46;
-      letter-spacing: 0.4px;
+    }
+
+    .profile-box p {
+      color: #e3eadf;
+      font-size: 14px;
+    }
+
+    .small-tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #d6e3d5;
+      margin-bottom: 12px;
+      margin-top: 18px;
+      font-weight: 700;
     }
 
     .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 10px;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: #374151;
+      padding: 10px 12px;
+      border-radius: 12px;
       font-size: 14px;
-      font-weight: 600;
+      color: #f7fbf6;
+      background: rgba(255, 255, 255, 0.08);
       transition: 0.2s;
     }
 
     .nav-links a:hover {
-      color: #059669;
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(4px);
+    }
+
+    .contact-mini {
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-mini div {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #eef5eb;
+      word-break: break-word;
+    }
+
+    .main {
+      padding: 32px 40px 60px;
     }
 
     .hero {
-      width: 90%;
-      max-width: 1180px;
-      margin: auto;
-      padding: 72px 0 55px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 42px;
-      align-items: center;
+      background: linear-gradient(135deg, #fffefb, #f0eadf);
+      border: 1px solid #e4dbc8;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 12px 28px rgba(70, 77, 64, 0.08);
+      margin-bottom: 28px;
     }
 
-    .hero-text .label {
+    .hero-badge {
       display: inline-block;
-      background: #d1fae5;
-      color: #065f46;
-      padding: 7px 14px;
-      border-radius: 30px;
-      font-weight: 700;
+      background: #dce6d7;
+      color: #2f513b;
+      padding: 8px 14px;
+      border-radius: 999px;
       font-size: 13px;
+      font-weight: 800;
       margin-bottom: 18px;
     }
 
-    .hero h1 {
+    .hero h2 {
       font-size: 50px;
-      line-height: 1.12;
-      color: #064e3b;
-      margin-bottom: 18px;
+      line-height: 1.08;
+      color: #26372d;
+      margin-bottom: 12px;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
-    .hero h1 span {
-      color: #059669;
+    .hero h2 span {
+      color: #6a7b49;
+    }
+
+    .hero-sub {
+      font-size: 22px;
+      color: #55705a;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
     .hero p {
       font-size: 17px;
-      color: #4b5563;
-      margin-bottom: 18px;
+      color: #4b544d;
+      margin-bottom: 14px;
+      max-width: 900px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
-      margin-top: 26px;
+      gap: 12px;
       flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .btn {
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 30px;
-      font-weight: 700;
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
       font-size: 14px;
+      font-weight: 800;
       transition: 0.2s;
     }
 
-    .btn-main {
-      background: #059669;
+    .btn-primary {
+      background: #516746;
       color: white;
-      box-shadow: 0 10px 24px rgba(5, 150, 105, 0.25);
+      box-shadow: 0 10px 20px rgba(81, 103, 70, 0.2);
     }
 
-    .btn-outline {
-      border: 2px solid #059669;
-      color: #047857;
-      background: white;
+    .btn-secondary {
+      border: 2px solid #516746;
+      color: #516746;
+      background: transparent;
     }
 
     .btn:hover {
       transform: translateY(-2px);
     }
 
-    .hero-card {
-      background: linear-gradient(145deg, #064e3b, #059669);
-      color: white;
-      padding: 34px;
-      border-radius: 28px;
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 18px 40px rgba(6, 78, 59, 0.24);
-      position: relative;
-      overflow: hidden;
+    .section {
+      margin-bottom: 26px;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 50%;
-      right: -50px;
-      top: -50px;
-    }
-
-    .avatar {
-      width: 128px;
-      height: 128px;
-      border-radius: 30px;
-      border: 4px solid rgba(255, 255, 255, 0.45);
-      object-fit: cover;
-      display: block;
-      margin-bottom: 24px;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
-      background: rgba(255, 255, 255, 0.17);
-    }
-
-    .hero-card h2 {
-      font-size: 30px;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-card p {
-      color: #ecfdf5;
-      font-size: 15px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .quick-info {
-      display: grid;
-      gap: 12px;
-      margin-top: 28px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .quick-info div {
-      background: rgba(255, 255, 255, 0.12);
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-size: 14px;
-    }
-
-    section {
-      padding: 68px 0;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 20px;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #d1fae5;
-      padding-bottom: 14px;
-    }
-
-    .section-heading h2 {
-      font-size: 34px;
-      color: #064e3b;
-    }
-
-    .section-heading p {
-      max-width: 520px;
-      color: #6b7280;
-      font-size: 15px;
-    }
-
-    .about-box {
-      background: white;
-      padding: 34px;
-      border-radius: 24px;
-      border: 1px solid #d1fae5;
-      box-shadow: 0 12px 28px rgba(5, 150, 105, 0.08);
-    }
-
-    .about-box p {
+    .section-header {
       margin-bottom: 16px;
-      color: #374151;
     }
 
-    .two-column {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
+    .section-header h3 {
+      font-size: 30px;
+      color: #2b372f;
+      margin-bottom: 6px;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
-    .panel {
-      background: white;
-      padding: 28px;
-      border-radius: 22px;
-      border: 1px solid #d1fae5;
-      box-shadow: 0 10px 24px rgba(5, 150, 105, 0.07);
-    }
-
-    .panel h3 {
-      color: #047857;
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .panel p {
-      color: #4b5563;
-      margin-bottom: 12px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .section-header p {
+      color: #6a726b;
+      font-size: 15px;
     }
 
     .card {
-      background: white;
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
       border-radius: 22px;
-      border: 1px solid #d1fae5;
-      padding: 25px;
-      box-shadow: 0 10px 24px rgba(5, 150, 105, 0.07);
-      transition: 0.25s;
+      padding: 26px;
+      box-shadow: 0 10px 24px rgba(70, 77, 64, 0.07);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 35px rgba(5, 150, 105, 0.13);
-    }
-
-    .card-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #ecfdf5;
-      color: #059669;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
+    .card p {
+      color: #4b544d;
       margin-bottom: 14px;
     }
 
-    .card h3 {
-      color: #064e3b;
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .toc-item {
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
+      border-radius: 18px;
+      padding: 18px;
+      transition: 0.2s;
+      box-shadow: 0 8px 20px rgba(70, 77, 64, 0.05);
+    }
+
+    .toc-item:hover {
+      transform: translateY(-4px);
+      border-color: #8ba17c;
+    }
+
+    .toc-item span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #6b7c56;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .toc-item strong {
+      font-size: 17px;
+      color: #2c352f;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(70, 77, 64, 0.06);
+    }
+
+    .info-card h4 {
+      color: #4d6548;
       font-size: 20px;
       margin-bottom: 10px;
     }
 
-    .card p {
-      color: #4b5563;
+    .info-card p,
+    .info-card li {
+      color: #4b544d;
       font-size: 15px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 15px;
+    .info-card ul {
+      margin-left: 18px;
     }
 
-    .tags span {
-      background: #ecfdf5;
-      color: #065f46;
-      padding: 7px 11px;
-      border-radius: 18px;
-      font-size: 13px;
-      border: 1px solid #a7f3d0;
-    }
-
-    .goals {
+    .project-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
-    .goal-card {
-      background: #064e3b;
-      color: white;
-      padding: 28px;
-      border-radius: 24px;
-      box-shadow: 0 12px 28px rgba(6, 78, 59, 0.18);
+    .project-card {
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
+      border-left: 6px solid #73885d;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(70, 77, 64, 0.06);
     }
 
-    .goal-card h3 {
+    .project-card h4 {
+      font-size: 23px;
+      color: #2f3b31;
       margin-bottom: 12px;
-      font-size: 22px;
     }
 
-    .goal-card p {
-      color: #d1fae5;
-      font-size: 15px;
-    }
-
-    .note-box {
-      background: #fffbeb;
-      border-left: 5px solid #f59e0b;
-      color: #78350f;
-      padding: 18px;
-      border-radius: 14px;
-      margin-top: 18px;
-      font-size: 15px;
-    }
-
-    .contact-section {
-      background: linear-gradient(145deg, #ecfdf5, #ffffff);
-    }
-
-    .contact-card {
-      max-width: 850px;
-      margin: auto;
-      background: white;
-      border-radius: 26px;
-      border: 1px solid #a7f3d0;
-      padding: 34px;
-      box-shadow: 0 16px 36px rgba(5, 150, 105, 0.12);
-    }
-
-    .contact-card h3 {
-      color: #064e3b;
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
-
-    .contact-grid {
+    .project-meta {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
     }
 
-    .contact-grid p {
-      background: #f0fdf4;
-      padding: 13px 15px;
+    .mini-box {
+      background: #f5f1e7;
       border-radius: 14px;
-      color: #374151;
-      border: 1px solid #bbf7d0;
-      word-break: break-word;
+      padding: 14px;
     }
 
-    footer {
-      background: #064e3b;
-      color: #d1fae5;
-      text-align: center;
-      padding: 22px;
+    .mini-box strong {
+      display: block;
+      color: #4a5d3b;
+      margin-bottom: 6px;
       font-size: 14px;
     }
 
-    @media (max-width: 900px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .mini-box p {
+      margin: 0;
+      font-size: 14px;
+    }
 
-      .hero,
-      .two-column,
-      .cards,
-      .goals,
-      .contact-grid {
+    .artifact-note {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 14px;
+      background: #e9f0e3;
+      color: #3b5137;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(70, 77, 64, 0.05);
+    }
+
+    .skill-card h4 {
+      color: #4f6649;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .skill-card p {
+      font-size: 14px;
+      color: #4b544d;
+      margin-bottom: 0;
+    }
+
+    .artifact-tag {
+      margin-top: 10px;
+      background: #fff3dd;
+      color: #8b5b18;
+      border-left: 4px solid #d79a38;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .bar h5 {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      color: #334133;
+      margin-bottom: 6px;
+    }
+
+    .bar-line {
+      height: 12px;
+      background: #e7eadf;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #73885d, #516746);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, #31473a, #425848);
+      color: white;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(49, 71, 58, 0.18);
+    }
+
+    .highlight-card h4 {
+      color: #f2f8ed;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .highlight-card p,
+    .highlight-card li {
+      color: #e3ebe0;
+      font-size: 15px;
+    }
+
+    .highlight-card ul {
+      margin-left: 18px;
+    }
+
+    .swot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .swot-card {
+      background: #fffdfa;
+      border: 1px solid #e5ddd0;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(70, 77, 64, 0.05);
+    }
+
+    .swot-card h4 {
+      color: #4f6649;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .swot-card ul {
+      margin-left: 18px;
+      color: #4b544d;
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, #efe7d5, #f8f4ea);
+      border: 1px solid #e5ddd0;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(70, 77, 64, 0.06);
+    }
+
+    .testimonial p {
+      font-size: 18px;
+      color: #3d463f;
+      font-style: italic;
+    }
+
+    .testimonial .name {
+      margin-top: 16px;
+      color: #667652;
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: #6f766f;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .layout {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
+      .sidebar {
+        position: relative;
+        height: auto;
+      }
+
+      .main {
+        padding: 24px 18px 50px;
+      }
+
+      .hero {
+        padding: 28px;
+      }
+
+      .hero h2 {
         font-size: 38px;
       }
 
-      .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
+      .toc-grid,
+      .grid-2,
+      .project-meta,
+      .skills-grid,
+      .highlight-grid,
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+      }
+
+      .section-header h3 {
+        font-size: 26px;
       }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <div class="brand">Dev Rathod</div>
-
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#goals">Goals</a>
-        <a href="#contact">Contact</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="profile-box">
+       <img class="profile-img" src="data:image/webp;base64,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" alt="Dev Rathod profile photo" />
+        <h1>Dev Rathod</h1>
+        <p>Civil Engineering Graduate</p>
+        <div class="small-tag">Professional Portfolio</div>
       </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-text">
-        <span class="label">Civil Engineering Student Portfolio</span>
+      <div class="nav-title">Navigation</div>
+      <div class="nav-links">
+        <a href="#cover">Cover</a>
+        <a href="#contents">Table of Contents</a>
+        <a href="#philosophy">Learning Philosophy</a>
+        <a href="#resume">Resume / CV</a>
+        <a href="#projects">Projects & Research</a>
+        <a href="#skills">Advanced Skills</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#ethics">Ethics & Global Awareness</a>
+        <a href="#future">Professional Aspirations</a>
+        <a href="#conclusion">Conclusion & SWOT</a>
+        <a href="#testimonial">Testimonial</a>
+      </div>
 
-        <h1>Hello, I am <span>Dev Rathod</span></h1>
+      <div class="contact-mini">
+        <div><strong>Email:</strong> dev20rathod@gmail.com</div>
+        <div><strong>Institution:</strong> Pandit Deendayal Energy University</div>
+        <div><strong>Location:</strong> Gujarat, India</div>
+        <div><strong>Date:</strong> 30 April 2026</div>
+      </div>
+    </aside>
 
+    <main class="main">
+      <section class="hero" id="cover">
+        <span class="hero-badge">Civil Engineering Graduate Portfolio</span>
+        <h2>Hello, I’m <span>Dev Rathod</span></h2>
+        <div class="hero-sub">Designing with responsibility, learning with discipline.</div>
         <p>
-          Welcome to my digital portfolio. This portfolio is created as a future-ready academic space where I can present my learning journey, skills, projects, certificates, achievements, and career goals in a proper and organized manner.
+          This portfolio presents my academic achievements, technical skills,
+          interdisciplinary projects, leadership experiences, ethical awareness,
+          and professional development as a Civil Engineering graduate.
         </p>
-
         <p>
-          I am currently developing my technical knowledge and professional skills as a Civil Engineering student. This website will be updated regularly as I complete new academic work, participate in events, and gain more experience.
+          It has been created to showcase my academic journey, applied learning,
+          project work, collaborative experiences, and career-focused growth in
+          a structured and professional format.
         </p>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-main">Explore My Work</a>
-          <a href="#contact" class="btn btn-outline">Contact Details</a>
+          <a href="#contents" class="btn btn-primary">Explore Portfolio</a>
+          <a href="#resume" class="btn btn-secondary">View Resume</a>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-card">
-        <div>
-         <img class="avatar" src="profile.jpg.jpeg" alt="Dev Rathod profile photo" />
+      <section class="section" id="contents">
+        <div class="section-header">
+          <h3>Table of Contents</h3>
+          <p>Organized sections with hyperlinks for easy navigation.</p>
+        </div>
 
-          <h2>Civil Engineering Student</h2>
+        <div class="toc-grid">
+          <a class="toc-item" href="#cover"><span>01</span><strong>Cover Page</strong></a>
+          <a class="toc-item" href="#philosophy"><span>02</span><strong>Introduction & Learning Philosophy</strong></a>
+          <a class="toc-item" href="#resume"><span>03</span><strong>Resume / CV</strong></a>
+          <a class="toc-item" href="#projects"><span>04</span><strong>Interdisciplinary Projects & Research</strong></a>
+          <a class="toc-item" href="#skills"><span>05</span><strong>Advanced Skill Development</strong></a>
+          <a class="toc-item" href="#leadership"><span>06</span><strong>Collaborative & Leadership Experiences</strong></a>
+          <a class="toc-item" href="#ethics"><span>07</span><strong>Global Awareness & Ethics</strong></a>
+          <a class="toc-item" href="#future"><span>08</span><strong>Professional Aspirations</strong></a>
+          <a class="toc-item" href="#conclusion"><span>09</span><strong>Conclusion & Self-Assessment</strong></a>
+        </div>
+      </section>
 
+      <section class="section" id="philosophy">
+        <div class="section-header">
+          <h3>Introduction and Learning Philosophy</h3>
+          <p>My academic journey, values, and approach toward Civil Engineering.</p>
+        </div>
+
+        <div class="card">
           <p>
-            Focused on learning, improving, and building a strong academic profile step by step.
+            My learning journey in Civil Engineering has helped me understand that
+            engineering is not only about technical calculations or structural ideas,
+            but also about solving practical problems that affect society. Civil
+            Engineering connects design, safety, planning, sustainability, economy,
+            environment, and public service.
+          </p>
+          <p>
+            My learning philosophy is based on practical understanding, consistency,
+            teamwork, and responsible application of knowledge. I believe that a good
+            engineer should not only learn theory, but should also observe real
+            conditions, analyze problems carefully, and apply solutions in a safe and
+            ethical manner.
+          </p>
+          <p>
+            The values that guide my work include discipline, honesty, accuracy,
+            communication, collaboration, and continuous improvement. This portfolio
+            reflects my academic development, technical skills, project experience,
+            and my commitment to professional growth.
           </p>
         </div>
+      </section>
 
-        <div class="quick-info">
-          <div><strong>Name:</strong> Dev Rathod</div>
-          <div><strong>Field:</strong> Civil Engineering</div>
-          <div><strong>College:</strong> Pandit Deendayal Energy University</div>
-          <div><strong>Email:</strong> dev20rathod@gmail.com</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h2>About Me</h2>
-          <p>A short introduction about my academic background and future learning direction.</p>
+      <section class="section" id="resume">
+        <div class="section-header">
+          <h3>Resume / CV</h3>
+          <p>A concise overview of my education, profile, skills, activities, and development.</p>
         </div>
 
-        <div class="about-box">
-          <p>
-            My name is Dev Rathod, and I am a Civil Engineering student at Pandit Deendayal Energy University. I am interested in learning how civil engineering is connected with real-life construction, infrastructure development, building planning, transportation systems, and sustainable development.
-          </p>
-
-          <p>
-            As a student, I am still in the learning stage, but I believe that consistent improvement is important for building a strong professional profile. Through my academic work, I am trying to understand both theoretical concepts and their practical applications.
-          </p>
-
-          <p>
-            This digital portfolio is designed to record my learning progress, future projects, certificates, technical skills, and academic achievements. I will keep updating it as I complete more work and gain new experiences.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Education</h2>
-          <p>My current education details and important learning areas.</p>
-        </div>
-
-        <div class="two-column">
-          <div class="panel">
-            <h3>Current Study</h3>
-            <p><strong>Degree:</strong> Bachelor’s Degree in Civil Engineering</p>
-            <p><strong>College:</strong> Pandit Deendayal Energy University</p>
-            <p><strong>Status:</strong> Currently Pursuing</p>
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Education</h4>
+            <p><strong>B.Tech in Civil Engineering</strong><br>Pandit Deendayal Energy University<br>Bachelor’s degree completed in Civil Engineering.</p>
           </div>
 
-          <div class="panel">
-            <h3>Learning Areas</h3>
-            <p>
-              My studies include important civil engineering subjects such as construction materials, surveying, structural engineering, estimation, transportation engineering, environmental engineering, project planning, and concrete technology.
-            </p>
+          <div class="info-card">
+            <h4>Work Experience / Training</h4>
+            <ul>
+              <li>Academic construction observation and project-based learning.</li>
+              <li>Experience in planning, estimation, presentation, and documentation.</li>
+              <li>Team-based assignments and technical study activities.</li>
+            </ul>
+          </div>
 
+          <div class="info-card">
+            <h4>Job Profile</h4>
             <p>
-              These subjects are helping me develop a basic understanding of engineering problems and their practical solutions.
+              Civil Engineering graduate interested in construction planning,
+              site coordination, estimation, sustainable infrastructure, and
+              project documentation.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>Areas of Interest</h4>
+            <ul>
+              <li>Construction Management</li>
+              <li>Structural Engineering</li>
+              <li>Transportation Engineering</li>
+              <li>Green Building Concepts</li>
+              <li>Quantity Surveying</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Specialization Focus</h4>
+            <p>
+              Construction materials, building planning, concrete technology,
+              project planning, and infrastructure development.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>Technical Skills</h4>
+            <ul>
+              <li>AutoCAD drafting basics</li>
+              <li>MS Excel for estimation</li>
+              <li>PowerPoint presentation</li>
+              <li>Basic surveying concepts</li>
+              <li>Technical report writing</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Soft Skills</h4>
+            <ul>
+              <li>Communication</li>
+              <li>Teamwork</li>
+              <li>Leadership</li>
+              <li>Problem-solving</li>
+              <li>Time management</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Certifications & Professional Development</h4>
+            <ul>
+              <li>Technical workshops and seminars.</li>
+              <li>Online learning in drafting and estimation.</li>
+              <li>Academic technical event participation.</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Awards & Honors</h4>
+            <p>
+              Recognition areas include academic participation, teamwork,
+              project presentations, and technical activities.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>Volunteer & Co-Curricular Activities</h4>
+            <ul>
+              <li>College group activities</li>
+              <li>Technical presentation work</li>
+              <li>Seminar participation</li>
+              <li>Model and poster preparation</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Hobbies</h4>
+            <ul>
+              <li>Learning digital tools</li>
+              <li>Exploring infrastructure topics</li>
+              <li>Creative design and presentation</li>
+              <li>Team activities</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h4>Contact</h4>
+            <p>
+              <strong>Email:</strong> dev20rathod@gmail.com<br>
+              <strong>LinkedIn:</strong> Add later<br>
+              <strong>Location:</strong> Gujarat, India
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Skills</h2>
-          <p>Skills I am currently learning and skills I want to improve in the future.</p>
+      <section class="section" id="projects">
+        <div class="section-header">
+          <h3>Interdisciplinary Projects and Research</h3>
+          <p>Project work demonstrating integration of Civil Engineering with other domains.</p>
         </div>
 
-        <div class="cards">
-          <div class="card">
-            <div class="card-number">01</div>
-            <h3>Technical Learning</h3>
-            <p>Basic technical concepts related to civil engineering and construction work.</p>
+        <div class="project-list">
+          <div class="project-card">
+            <h4>1. Green Building Material Study for Indoor Temperature Regulation</h4>
+            <p>
+              <strong>Project Overview:</strong> This project combined Civil Engineering,
+              building materials, sustainability, and thermal comfort concepts to study
+              how innovative materials can improve indoor temperature regulation.
+            </p>
 
-            <div class="tags">
-              <span>Building Planning</span>
-              <span>Surveying</span>
-              <span>Estimation</span>
-              <span>Concrete Technology</span>
-              <span>Structural Basics</span>
+            <div class="project-meta">
+              <div class="mini-box">
+                <strong>Methodology</strong>
+                <p>Literature review, material comparison, thermal comfort analysis, and basic performance study.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Outcomes & Innovation</strong>
+                <p>Suggested energy-efficient material options that can reduce heat gain and improve indoor comfort.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Visuals / Prototype</strong>
+                <p>Material comparison charts, wall-section sketches, and presentation slides.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Challenges & Solutions</strong>
+                <p>Challenge: selecting practical materials. Solution: compared availability, cost, and thermal performance.</p>
+              </div>
+            </div>
+
+            <div class="artifact-note">Artefact: Material comparison chart + thermal concept diagram</div>
+          </div>
+
+          <div class="project-card">
+            <h4>2. Campus Traffic and Parking Improvement Concept</h4>
+            <p>
+              <strong>Project Overview:</strong> This project integrated Transportation
+              Engineering, planning, safety, and user movement analysis to improve
+              campus traffic circulation and parking organization.
+            </p>
+
+            <div class="project-meta">
+              <div class="mini-box">
+                <strong>Methodology</strong>
+                <p>Observed movement pattern, identified conflict points, studied parking requirements, and prepared layout options.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Outcomes & Innovation</strong>
+                <p>Developed a concept for better vehicle flow, organized parking, and safer pedestrian movement.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Visuals / Prototype</strong>
+                <p>Road layout sketches, parking bay diagrams, and traffic circulation markings.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Challenges & Solutions</strong>
+                <p>Challenge: limited available space. Solution: optimized circulation paths and separate movement zones.</p>
+              </div>
+            </div>
+
+            <div class="artifact-note">Artefact: Campus movement layout + parking plan sketch</div>
+          </div>
+
+          <div class="project-card">
+            <h4>3. Residential Construction Cost Estimation and Scheduling Study</h4>
+            <p>
+              <strong>Project Overview:</strong> This project combined estimation,
+              construction management, scheduling, and documentation to prepare a
+              structured plan for a small residential building project.
+            </p>
+
+            <div class="project-meta">
+              <div class="mini-box">
+                <strong>Methodology</strong>
+                <p>Prepared quantity calculations, organized cost components, and developed a basic work schedule.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Outcomes & Innovation</strong>
+                <p>Presented a simple, organized estimation and time-planning approach for small-scale construction work.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Visuals / Prototype</strong>
+                <p>BOQ tables, activity sequence chart, and project summary sheets.</p>
+              </div>
+              <div class="mini-box">
+                <strong>Challenges & Solutions</strong>
+                <p>Challenge: balancing cost and efficiency. Solution: phased activity planning and structured estimation.</p>
+              </div>
+            </div>
+
+            <div class="artifact-note">Artefact: BOQ sheet + construction activity schedule</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-header">
+          <h3>Advanced Skill Development and Mastery</h3>
+          <p>Technical, soft, and creative competencies developed through academic work.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Drafting & Layout</h4>
+            <p>Prepared basic plans, layout concepts, and civil drawings with dimensions and structure.</p>
+            <div class="artifact-tag">Artefact: Layout drawings and plan sketches</div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Estimation & Excel</h4>
+            <p>Used Excel for basic estimation, quantity calculation, and tabular project work.</p>
+            <div class="artifact-tag">Artefact: Estimation tables and calculation sheets</div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Presentation Skills</h4>
+            <p>Improved communication through project presentations, report explanation, and group discussions.</p>
+            <div class="artifact-tag">Artefact: PPT slides and seminar notes</div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Creative Problem Solving</h4>
+            <p>Applied design thinking to create practical and visually clear project solutions.</p>
+            <div class="artifact-tag">Artefact: Concept sketches and diagrams</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="bars">
+            <div class="bar">
+              <h5><span>Technical Understanding</span><span>84%</span></h5>
+              <div class="bar-line"><div class="bar-fill" style="width:84%"></div></div>
+            </div>
+            <div class="bar">
+              <h5><span>Presentation and Communication</span><span>83%</span></h5>
+              <div class="bar-line"><div class="bar-fill" style="width:83%"></div></div>
+            </div>
+            <div class="bar">
+              <h5><span>Project Documentation</span><span>81%</span></h5>
+              <div class="bar-line"><div class="bar-fill" style="width:81%"></div></div>
+            </div>
+            <div class="bar">
+              <h5><span>Team Collaboration</span><span>87%</span></h5>
+              <div class="bar-line"><div class="bar-fill" style="width:87%"></div></div>
             </div>
           </div>
-
-          <div class="card">
-            <div class="card-number">02</div>
-            <h3>Software Skills</h3>
-            <p>Software tools that I want to improve for academic and professional use.</p>
-
-            <div class="tags">
-              <span>AutoCAD Basics</span>
-              <span>MS Word</span>
-              <span>PowerPoint</span>
-              <span>Excel</span>
-              <span>Design Tools</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-number">03</div>
-            <h3>Professional Skills</h3>
-            <p>Personal and professional skills useful for teamwork and presentation.</p>
-
-            <div class="tags">
-              <span>Communication</span>
-              <span>Teamwork</span>
-              <span>Presentation</span>
-              <span>Problem Solving</span>
-              <span>Time Management</span>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Projects</h2>
-          <p>Academic projects, digital work, and planned future project sections.</p>
+      <section class="section" id="leadership">
+        <div class="section-header">
+          <h3>Collaborative and Leadership Experiences</h3>
+          <p>Team roles, responsibilities, and group contribution.</p>
         </div>
 
-        <div class="cards">
-          <div class="card">
-            <div class="card-number">A</div>
-            <h3>Digital Portfolio Website</h3>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <h4>Group Project Collaboration</h4>
+            <ul>
+              <li>Worked with classmates on presentations, reports, and project planning.</li>
+              <li>Helped divide work according to strengths of team members.</li>
+              <li>Supported design, formatting, and final explanation of project content.</li>
+            </ul>
+          </div>
+
+          <div class="highlight-card">
+            <h4>Leadership and Conflict Resolution</h4>
+            <ul>
+              <li>Maintained clear communication during team tasks.</li>
+              <li>Resolved differences by comparing ideas and choosing practical solutions.</li>
+              <li>Encouraged timely completion and equal contribution from all members.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ethics">
+        <div class="section-header">
+          <h3>Global Awareness and Ethical Considerations</h3>
+          <p>Reflection on sustainability, responsibility, and engineering ethics.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="info-card">
+            <h4>Global Awareness</h4>
             <p>
-              This portfolio website is one of my academic digital works. It is created to present my profile, education, future goals, skills, and learning progress in a structured format.
+              Civil Engineering projects are closely linked with climate change,
+              urban development, water management, transportation demand, and
+              resource consumption. Sustainable design and responsible planning
+              are essential for long-term public benefit.
+            </p>
+            <p>
+              <strong>Case Scenario:</strong> In building and road projects,
+              ignoring drainage, safety, or environmental impact can create
+              serious future problems even if the project seems successful in the short term.
             </p>
           </div>
 
-          <div class="card">
-            <div class="card-number">B</div>
-            <h3>Academic Presentation Work</h3>
+          <div class="info-card">
+            <h4>Ethical Considerations</h4>
             <p>
-              This section will include presentation work completed during college. These presentations will help me improve subject knowledge and confidence in speaking.
+              Engineering ethics include honest estimation, safe design, proper
+              material selection, and responsibility toward society. A civil
+              engineer must consider the effect of decisions on people,
+              environment, maintenance, and long-term safety.
             </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">C</div>
-            <h3>Future Academic Projects</h3>
             <p>
-              I plan to add future projects related to building planning, estimation, structural models, transportation engineering, and sustainable construction methods.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">D</div>
-            <h3>Model Making and Design Work</h3>
-            <p>
-              After completing practical models or drawings, I will add images and descriptions here to show my academic and practical learning.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">E</div>
-            <h3>Research-Based Study</h3>
-            <p>
-              This section will be used for research proposals, literature review work, and topic-based studies related to civil engineering problems.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-number">F</div>
-            <h3>Internship Learning</h3>
-            <p>
-              In the future, I will add internship or field learning experience, including site observations, work responsibilities, and key learning points.
+              <strong>Personal Reflection:</strong> I believe engineering work
+              should always be safe, practical, economical, and environmentally responsible.
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="achievements">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Achievements & Certifications</h2>
-          <p>A future update section for certificates, participation, and achievements.</p>
+      <section class="section" id="future">
+        <div class="section-header">
+          <h3>Professional Aspirations and Development</h3>
+          <p>Career direction and commitment to continuous learning.</p>
         </div>
 
-        <div class="about-box">
+        <div class="card">
           <p>
-            This section is created to record my achievements and certifications in the future. At present, I am focusing on learning and improving my skills. As I participate in seminars, workshops, competitions, technical events, internships, and online courses, I will update this section with proper details.
+            My professional aspiration is to build a strong career in Civil Engineering
+            by improving field knowledge, software skills, technical documentation,
+            and practical problem-solving ability. I aim to work on infrastructure
+            and construction-related projects where academic knowledge can be applied effectively.
+          </p>
+          <p>
+            For continuous development, I plan to learn advanced civil engineering software,
+            attend professional workshops, gain internship and site exposure, improve
+            estimation and planning skills, and stay updated with sustainable
+            construction practices and professional ethics.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="conclusion">
+        <div class="section-header">
+          <h3>Conclusion and Self-Assessment</h3>
+          <p>Summary of learning, reflection, and SWOT analysis.</p>
+        </div>
+
+        <div class="card">
+          <p>
+            This portfolio summarizes my academic development, technical skills,
+            project work, leadership experience, ethical awareness, and professional goals.
+            It reflects my effort to connect engineering knowledge with practical applications.
+          </p>
+          <p>
+            My self-assessment shows strengths in teamwork, presentation, and
+            interest in practical learning. Areas for growth include advanced software
+            practice, more site exposure, and deeper design understanding.
           </p>
 
+          <div class="swot-grid">
+            <div class="swot-card">
+              <h4>Strengths</h4>
+              <ul>
+                <li>Good teamwork and communication</li>
+                <li>Interest in practical Civil Engineering</li>
+                <li>Willingness to learn technical tools</li>
+              </ul>
+            </div>
+
+            <div class="swot-card">
+              <h4>Weaknesses</h4>
+              <ul>
+                <li>Need more site exposure</li>
+                <li>Need advanced software practice</li>
+                <li>Need stronger design confidence</li>
+              </ul>
+            </div>
+
+            <div class="swot-card">
+              <h4>Opportunities</h4>
+              <ul>
+                <li>Internships and field training</li>
+                <li>Online certifications</li>
+                <li>Growth in sustainable infrastructure</li>
+              </ul>
+            </div>
+
+            <div class="swot-card">
+              <h4>Threats</h4>
+              <ul>
+                <li>High competition in the engineering field</li>
+                <li>Changing industry technology</li>
+                <li>Need for continuous skill upgrading</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="testimonial">
+        <div class="section-header">
+          <h3>Testimonial</h3>
+          <p>Recommendation from an academic mentor or professor.</p>
+        </div>
+
+        <div class="testimonial">
           <p>
-            Future updates may include workshop certificates, online course certificates, technical event participation, internship experience, project completion certificates, and college-level achievements.
+            “Dev Rathod has shown sincere interest in academic learning, teamwork,
+            and project-based activities. His portfolio reflects a positive approach
+            toward Civil Engineering, technical improvement, and professional growth.”
           </p>
-
-          <div class="note-box">
-            Note: This section is intentionally kept as a future update section, so that completed achievements can be added honestly after completion.
-          </div>
+          <div class="name">— Academic Mentor / Professor</div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="goals">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Future Goals</h2>
-          <p>My academic, skill-based, and professional development goals.</p>
-        </div>
-
-        <div class="goals">
-          <div class="goal-card">
-            <h3>Short-Term Goals</h3>
-            <p>
-              Improve academic performance, learn important civil engineering basics properly, practice AutoCAD, improve presentation skills, and participate in technical activities.
-            </p>
-          </div>
-
-          <div class="goal-card">
-            <h3>Skill Goals</h3>
-            <p>
-              Develop better knowledge of estimation, building planning, Excel calculations, project reports, and civil engineering software used in the industry.
-            </p>
-          </div>
-
-          <div class="goal-card">
-            <h3>Long-Term Goals</h3>
-            <p>
-              Gain internship experience, understand real construction problems, work on practical engineering solutions, and build a stronger academic and professional profile in civil engineering.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Contact</h2>
-          <p>Basic contact details for academic and future professional communication.</p>
-        </div>
-
-        <div class="contact-card">
-          <h3>Contact Information</h3>
-
-          <div class="contact-grid">
-            <p><strong>Name:</strong> Dev Rathod</p>
-            <p><strong>Email:</strong> dev20rathod@gmail.com</p>
-            <p><strong>Course:</strong> Civil Engineering Student</p>
-            <p><strong>College:</strong> Pandit Deendayal Energy University</p>
-            <p><strong>Location:</strong> Gujarat, India</p>
-            <p><strong>LinkedIn:</strong> Add later</p>
-          </div>
-
-          <div class="note-box">
-            Thank you for visiting my portfolio. I will continue updating this website as I complete new projects, gain certificates, and improve my technical skills.
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 Dev Rathod | Civil Engineering Student Portfolio</p>
-  </footer>
+      <footer>
+        © 2026 Dev Rathod | Professional Portfolio | Pandit Deendayal Energy University
+      </footer>
+    </main>
+  </div>
 </body>
 </html>
